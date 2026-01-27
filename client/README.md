@@ -20,8 +20,8 @@ L'application exploite les versions les plus récentes de l'écosystème JavaScr
 |Vite|^7.13.0|Build Took de nouvelle génération pour un développement instantané.|
 |ESLint|^9.39.1|Analyse statique avec la nouvelle "Flat Config" pour une qualité de code optimale.|
 
-## Architecture de l'état & Données</div>
-### Gestion d'état via React Contect</div>
+## Architecture de l'état & Données
+### Gestion d'état via React Contect
 Plutôt que d'alourdir le projet avec des bibliothèque tierce, nous utilisons l'API **Context** native pour une intégration parfaite avec **React 19** :
 
 * **AuthContext :** Gère l'identité et les permissions.
@@ -34,7 +34,7 @@ Plutôt que d'alourdir le projet avec des bibliothèque tierce, nous utilisons l
 2. **Affichage :** Les composants consomment le Context pour un accès immédiat.
 3. **Mutation :** Toute modification est envoyée au serveur, puis le cache local est invalidé pour garantir la fraîcheur des données.
 
-## Installation et Développement<
+## Installation et Développement
 ### Prérequis
 
 * **Node.js** (Version 20+ recommandée)
