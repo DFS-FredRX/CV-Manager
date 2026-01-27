@@ -58,3 +58,5 @@ Plutôt que d'alourdir le projet avec des bibliothèque tierce, nous utilisons l
 ___
 
 **Note :** Ce projet est configuré en mode private: true. Toute distribution non autorisée est interdite.
+
+**© 2026 CV Manager. La solution intelligente pour vos candidatures.**
