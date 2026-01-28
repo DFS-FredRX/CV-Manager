@@ -1,6 +1,14 @@
 # CV Manager - Server Application
 La solution intelligente pour vos candidatures
 
+<div align="center">
+    <img src="https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white" />
+    <img src="https://img.shields.io/badge/TypeORM-FE0808?style=for-the-badge&logo=typeorm&logoColor=white" />
+    <img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white" />
+    <img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" />
+    <img src="https://img.shields.io/badge/prettier-1A2C37?style=for-the-badge&logo=prettier&logoColor=F7BA3E" />
+</div>
+
 **CV Manager - Server Application** est le coeur d'orchestration (Backend) de la plateforme de gestion de CV. Conçu avec le framework **NestJS**, il repose sur une architecture modulaire, scalable et typée, garantissant une haute fiabilité des données et des processus métier.
 
 ## Architecture & Conception
@@ -21,7 +29,7 @@ Le serveur traite les requêtes selon le cycle de vie suivant :
 3. **Service :** Contient la logique métier pure.
 4. **Repository :** Abstraction de la couche d'accès aux données MySQL.
 
-## Installation & Configuration
+## Installation & Configuration <img align="right" src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" /> <img align="right" src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" />
 ### Prérequis
 
 * Node.js (Version recommandée : v20+)
@@ -43,7 +51,7 @@ DB_PASSWORD = votre-mot-de-passe
 DB_NAME = cvmanager_db
 ```
 
-## Scripts de développement
+## Scripts de développement <img align="right" src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" />
 |Commande|Description|
 |--|--|
 |npm run start:dev|Lance le serveur en mode **Watch** (rechargement automatique).|

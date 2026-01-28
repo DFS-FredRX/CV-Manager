@@ -1,6 +1,13 @@
 # CV Manager - Client Application
 La solution intelligente pour vos candidatures
 
+<div align="center">
+    <img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+    <img src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" />
+    <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" />
+    <img src="https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white" />
+</div>
+
 ## Vision & Philosophie du projet
 **CV Manager - Client Application** n'est pas qu'une simple interface ; c'est un projet bâti sur le principe de **Souveraineté Numérique**. L'architecture est pensée pour être la moins invasive possible tout en offrant une expérience fluide et performante.
 
@@ -21,7 +28,7 @@ L'application exploite les versions les plus récentes de l'écosystème JavaScr
 |ESLint|^9.39.1|Analyse statique avec la nouvelle "Flat Config" pour une qualité de code optimale.|
 
 ## Architecture de l'état & Données
-### Gestion d'état via React Contect
+### Gestion d'état via React Context
 Plutôt que d'alourdir le projet avec des bibliothèque tierce, nous utilisons l'API **Context** native pour une intégration parfaite avec **React 19** :
 
 * **AuthContext :** Gère l'identité et les permissions.
@@ -34,7 +41,7 @@ Plutôt que d'alourdir le projet avec des bibliothèque tierce, nous utilisons l
 2. **Affichage :** Les composants consomment le Context pour un accès immédiat.
 3. **Mutation :** Toute modification est envoyée au serveur, puis le cache local est invalidé pour garantir la fraîcheur des données.
 
-## Installation et Développement
+## Installation et Développement <img align="right" src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" /> <img align="right" src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" />
 ### Prérequis
 
 * **Node.js** (Version 20+ recommandée)
