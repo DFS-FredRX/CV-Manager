@@ -1,98 +1,78 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# CV Manager - Server Application
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+**CV Manager - Server Application** est le coeur d'orchestration (Backend) de la plateforme de gestion de CV. Conçu avec le framework **NestJS**, il repose sur une architecture modulaire, scalable et typée, garantissant une haute fiabilité des données et des processus métier.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Architecture & Conception
+Le projet suit les principes de l'**Architecture Hexagonale** (ou Clean Architecture), favorisant le découplage entre la logique métier et les couches d'infrastructure.
 
-## Description
+### Stack technique
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+* **Framework :** NestJS v11 (Progressive Node.js framework).
+* **Langage :** TypeScript v5.9 pour un typage statique fort.
+* **Base de données :** MySQL via l'ORM TypeORM v0.3.
+* **Tests :** Jest pour les tests unitaires et E2E.
 
-## Project setup
+### Diagramme de flux de données
+Le serveur traite les requêtes selon le cycle de vie suivant :
 
-```bash
-$ npm install
+1. **Request Pipeline :** Guard > Interceptor > Pipe (Validation).
+2. **Controller :** Point d'entrée des API, gère le routage.
+3. **Service :** Contient la logique métier pure.
+4. **Repository :** Abstraction de la couche d'accès aux données MySQL.
+
+## Installation & Configuration
+### Prérequis
+
+* Node.js (Version recommandée : v20+)
+* Gestionnaire de paquets : npm
+* Instance MySQL active
+
+### Installation
+```Bash
+npm install
 ```
 
-## Compile and run the project
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+### Configuration environnementale
+Créez un fichier `.env` à la racine du projet en vous basant sur les besoins de TypeORM et @nestjs/config :
+```Extrait de code
+DB_HOST = localhost
+DB_PORT = 3306
+DB_USER = root
+DB_PASSWORD = votre-mot-de-passe
+DB_NAME = cvmanager_db
 ```
 
-## Run tests
+## Scripts de développement
+|Commande|Description|
+|--|--|
+|npm run start:dev|Lance le serveur en mode **Watch** (rechargement automatique).|
+|npm run build|Compile le projet TypeScript en JavaScript de production dans /dist.|
+|npm run lint|Analyse le code et corrige les erreurs de style via ESLint.|
+|npm run format|Formate le code selon les règles Prettier.|
 
-```bash
-# unit tests
-$ npm run test
+## Gestion de la base de données (Migrations)
+Le projet utilise **TypeORM** pour gérer les évolutions du schéma de base de données sans perte de données.
 
-# e2e tests
-$ npm run test:e2e
+* **Générer une migration :** npm run migration:generate src/migrations/NomDeLaMigration
+* **Appliquer les migrations :** npm run migration:up
+* **Annuler la dernière migration :** npm run migration:down
 
-# test coverage
-$ npm run test:cov
-```
+## Stratégie de tests
+La qualité logicielle est assurée par une couverture de tests automatisés.
 
-## Deployment
+* **Tests unitaires :** npm run test (Cible les fichiers .spec.ts).
+* **Tests End-to-End (E2E) :** npm run test:e2e (Simule des appels API réels).
+* **Couverture :** npm run test:cov (Génère un rapport de couverture dans /coverage).
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+**Note :** Les tests sont configurés pour détecter les fuites de mémoire via --detectOpenHandles.
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+## Sécurité et Maintenance
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+* **Overrides :** Le projet force l'utilisation de lodash ^4.17.21 pour prévenir les vulnérabilités de type "Prototype Pollution".
+* **Validation :** Toutes les entrées API sont validées au runtime pour empêcher les injections et les données malformées.
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+___
 
-## Resources
+**Note :** Ce projet est configuré en mode private: true. Toute distribution non autorisée est interdite.
 
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+**© 2026 CV Manager. La solution intelligente pour vos candidatures.**
