@@ -1,0 +1,31 @@
+{
+  "name": "cv-manager",
+  "slug": "La solution intelligente pour vos candidatures",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [
+    "React.JS",
+    "NestJS",
+    "MySQL"
+  ],
+  "homepage": "https://github.com/DFS-FredRX/CV-Manager#readme",
+  "bugs": {
+    "url": "https://github.com/DFS-FredRX/CV-Manager/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DFS-FredRX/CV-Manager.git"
+  },
+  "license": "MIT",
+  "author": "DFS-FredRX",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run start:dev --prefix server",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -1,4 +1,5 @@
 # CV Manager - Server Application
+La solution intelligente pour vos candidatures
 
 **CV Manager - Server Application** est le coeur d'orchestration (Backend) de la plateforme de gestion de CV. Conçu avec le framework **NestJS**, il repose sur une architecture modulaire, scalable et typée, garantissant une haute fiabilité des données et des processus métier.
 
