@@ -15,15 +15,16 @@ La solution intelligente pour vos candidatures
 </div>
 
 ## Présentation du projet
-**CV Manager** est une application moderne conçue pour centraliser et optimiser la gestion des candidatures. Le projet adopte une architecture robuste permettant une séparation claire entre la logique métier et l'interface utilisateur.
+**CV Manager** est une application moderne conçue pour centraliser et optimiser la gestion des candidatures. Le projet adopte une architecture robuste permettant une séparation claire entre la logique métier (NestJS) et l'interface utilisateur (React).
 
-## Stack technique <img align="right" src="https://img.shields.io/badge/Concurrently-FF69B4?style=for-the-badge&logo=npm&logoColor=white" />
-L'écosystème repose sur des technologies de points garantissant scalabilité et maintenabilité :
+## Stack technique & Orchestration <img align="right" src="https://img.shields.io/badge/Concurrently-FF69B4?style=for-the-badge&logo=npm&logoColor=white" />
+L'écosystème repose sur des technologies de pointe garantissant scalabilité et maintenabilité :
 
-* **Frontend :** React.js - Pour une interface utilisateur réactive et composable.
-* **Backend :** NestJS - Un frameword Node.js progressif pour construire des applications côté serveur efficaces et fiables.
-* **Base de données :** MySQL - Système de gestion de base de données relationnelle pour une intégrité des données maximale.
-* **Orchestration :** Concurrently - Utilisé pour piloter le développement fullstack en simultané.
+* **Frontend :** React.js - Interface utilisateur réactive et composable.
+* **Backend :** NestJS - Frameword Node.js progressif pour des API fiables.
+* **Base de données :** MySQL - Gestion relationnelle pour une intégrité maximale.
+* **Validation :** Utilisation de class-validator et class-transformer pour la sécurité des données.
+* **Orchestration :** Concurrently (^9.2.1) - Utilisé pour piloter le développement Fullstack en une seule commande.
 
 ## Installation et Démarrage <img align="right" src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" /> <img align="right" src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" />
 ### Prérequis
@@ -32,29 +33,21 @@ L'écosystème repose sur des technologies de points garantissant scalabilité e
 * **NPM**
 * Une instance **MySQL** active
 
-### Clonage du projet
+### Clonage et Installation
 ```Bash
 git clone git+ssh://git@github.com/DFS-FredRX/CV-Manager.git
 cd CV-Manager
-```
-
-### Installation des dépendances
-Installez les dépendances à la racine pour bénéficier des outils de développement :
-```Bash
 npm install
 ```
-*(Note : N'oubliez pas d'installer les dépendances spécifiques dans /client et /server si nécessaire.)*
+*(Note : L'installation à la racine permet de configurer les outils d'orchestration.)*
 
-### Lancement du mode développement
-Le projet est configuré pour lancer simultanément le frontend et le backend avec une seule commande :
-```Bash
-npm run dev
-```
+### Commandes de développement
+Le projet utilise des scripts automatisés pour simplifier votre flux de travail :
 |Commande|Action|
 |--|--|
-|npm run dev:client|Lance uniquement le client React|
+|npm run dev|Lancement combiné (Serveur NestJS + Client React)|
 |npm run dev:server|Lance uniquement le serveur NestJS (mode watch)|
-|**npm run dev**|**Lancement combiné (Client + Serveur)**|
+|npm run dev:client|Lance uniquement le client React|
 
 ## Roadmap & Conception
 
