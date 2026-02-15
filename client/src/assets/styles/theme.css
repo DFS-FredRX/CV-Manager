@@ -1,0 +1,124 @@
+:root {
+
+    --color-primary: #c69c5c;
+    --color-brightness: #e4c38e;
+    --color-secondary: #262626;
+    --color-shadow: rgba(0, 0, 0, 0.25);
+
+    --font-title: 'PT Sans', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+
+    font-family: var(--font-body);
+    font-size: 1em;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    text-align: justify;
+    
+}
+
+[data-theme="light"] {
+    --color-background: #fff;
+    --color-text: #262626;
+    --color-border: rgba(0, 0, 0, 0.125);
+    --color-blur: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] {
+    --color-background: #262626;
+    --color-text: #d9d9d9;
+    --color-border: rgba(255, 255, 255, 0.125);
+    --color-blur: rgba(38, 38, 38, 0.75);
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.layout {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 1em;
+    overflow: hidden;
+}
+
+header {
+    grid-row: 1 / 2;
+    padding: 1em;
+    background-color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 5em;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.25em;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+main {
+    grid-row: 2 / 3;
+    padding: 0 0.5em;
+    background-color: var(--color-background);
+    overflow-y: auto;
+    scrollbar-gutter: stable both-edges;
+}
+
+footer {
+    grid-row: 3 / 4;
+    padding: 1em;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p:nth-child(2) {
+    font-size: 0.7em;
+}
+
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-brightness);
+}
+
+@-moz-document url-prefix() {
+    #root, main {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary) transparent;
+    }
+}

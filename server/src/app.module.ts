@@ -1,12 +1,20 @@
 import { Module } from '@nestjs/common'
 import { ServeStaticModule } from '@nestjs/serve-static'
-import { ConfigModule } from '@nestjs/config'
+import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { dbConfig } from './config/db.config'
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 
 import * as path from 'path'
+
+import appConfig from './config/app.config'
+import dbConfig from './config/db.config'
+import mailConfig from './config/mail.config'
+import serverConfig from './config/server.config'
+import { DataSourceOptions } from 'typeorm'
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -16,9 +24,20 @@ import * as path from 'path'
     }),
     ConfigModule.forRoot({
       isGlobal: true,
+      load: [appConfig, dbConfig, mailConfig, serverConfig],
       envFilePath: path.join(process.cwd(), '../.env')
     }),
-    TypeOrmModule.forRoot(dbConfig)
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => {
+        const dbConfig = config.get<DataSourceOptions>('database')
+        if (!dbConfig) throw new Error('La configuration "database" est introuvable.')
+        return dbConfig
+      }
+    }),
+    AuthModule,
+    UserModule,
+    MailModule
   ],
   controllers: [AppController],
   providers: [AppService],

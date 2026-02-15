@@ -1,10 +1,19 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
+
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+
+import * as fs from 'fs'
+import * as path from 'path'
 
 async function bootstrap() {
+
+  const httpsOptions = {
+    key: fs.readFileSync(path.join(process.cwd(), 'certificats', 'key.pem')),
+    cert: fs.readFileSync(path.join(process.cwd(), 'certificats', 'cert.pem'))
+  }
   
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { httpsOptions });
 
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
@@ -12,8 +21,10 @@ async function bootstrap() {
     transform: true
   }))
 
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)))
+
   app.enableCors({
-    origin: 'http://localhost:5173',
+    origin: 'https://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
   })

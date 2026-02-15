@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="cid:app-logo" />
+
+        <title>{{ subject }}</title>
+
+        <style>
+            @media only screen and (max-width: 767px) {
+                .widthLA { width: 80px !important; height: auto !important; }
+                .widthXL { width: 100% !important; height: auto !important; }
+                .radiusXS { border-radius: 0 !important; }
+                .shadowXS { box-shadow: none !important; }
+                .paddingXS { padding: 0 !important; }
+                .paddingSM { padding: 8px !important; }
+                .paddingMD { padding: 16px !important; }
+                .vpaddingTopXS { padding-top: 0 !important; }
+                .vpaddingTopSM { padding-top: 8px !important; }
+                .vpaddingBottomXS { padding-bottom: 0 !important; }
+                .vpaddingBottomSM { padding-bottom: 8px !important; }
+                .marginXS { margin: 0 !important; }
+                .hmarginLeftXLNeg { margin-left: -38px !important; }
+                .listNoDot { list-style-type: none !important; }
+                .fontSM { font-size: 13px;}
+            }
+        </style>
+
+    </head>
+
+    <body class="paddingXS" style="margin: 0; background-color: #d9d9d9; font-family: Arial, sans-serif; font-size: 16px; padding: 32px 0;">
+
+        <table class="widthXL radiusXS shadowXS" width="600" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="color: #262626; overflow: hidden; border-radius: 16px; box-shadow: 0 0 16px rgba(0, 0, 0, 0.125);">
+
+            <tr>
+                <td class="paddingSM" align="center" bgcolor="#262626" style="padding: 16px;">
+                    <img class="widthLA" width="160" src="cid:app-logo" alt="Logo de l'application">
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" bgcolor="#ffffff" style="padding: 16px 0 0;">
+                    <h1 style="font-weight: bold; font-size: 24px; color: #c69c5c;">{{ subject }}</h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="paddingMD vpaddingTopXS vpaddingBottomXS" align="left" bgcolor="#ffffff" style="padding: 0 32px;">
+                    <h2 style="font-weight: bold; font-size: 20px;">Bonjour {{ firstname }},</h2>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="paddingMD vpaddingTopXS vpaddingBottomXS" align="left" bgcolor="#ffffff" style="padding: 0 32px; text-align: justify;">
+                    <p style="margin: 0;">Nous sommes ravis de vous compter parmi nous.</p>
+                    <p>Pour finaliser la création de votre compte et accéder en toute sécurité à nos services, merci de confirmer votre adresse mail en cliquant sur le bouton ci-dessous. Ce lien est valable pendant <strong>{{ tokenEXP }}</strong>.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" bgcolor="#ffffff" style="padding: 16px 0;">
+                    <a class="paddingMD vpaddingTopSM vpaddingBottomSM" style="background-color: #c69c5c; color: #ffffff; border-radius: 16px; font-weight: bold; text-decoration: none; padding: 8px 16px;" href="{{ activationURL }}">Activer mon compte</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="paddingMD vpaddingBottomXS" align="left" bgcolor="#ffffff" style="padding: 16px 32px 0;">
+                    <h3 style="font-weight: bold; font-size: 16px;">Pourquoi cette étape est-elle nécessaire ?</h3>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="paddingMD vpaddingTopXS vpaddingBottomXS" align="left" bgcolor="#ffffff" style="padding: 0 32px; text-align: justify;">
+                    <p style="margin: 0 0 16px;">La sécurité de vos données est notre priorité. Cette vérification nous permet de nous assurer que vous êtes bien le propriétaire de cette adresse mail et de protéger l'accès à vos futures informations personnelles.</p>
+                </td>                
+            </tr>
+
+            <tr>
+                <td class="paddingMD vpaddingTopXS vpaddingBottomXS" align="left" bgcolor="#ffffff" style="padding: 0 32px;">
+                    <h3 style="font-weight: bold; font-size: 16px;">Vous n'arrivez pas à cliquer sur le bouton ?</h3>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="paddingMD vpaddingTopXS" align="left" bgcolor="#ffffff" style="padding: 0 32px;">
+                    <p style="margin: 0 0 16px;">Copiez et collez l'URL suivante dans votre navigateur :</p>
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="paddingMD" align="left" bgcolor="f9f9f9" style="word-break: break-all; border-left: 4px solid #c69c5c; font-family: 'Courier New', Courier, monospace; border-top-right-radius: 16px; padding: 16px 32px;">{{ tokenURL }}</td>
+                            <td align="center" valign="middle" bgcolor="f9f9f9" style="padding: 0; width: 48px; border-top-right-radius: 16px; border-bottom-right-radius: 16px;">
+                                <a style="border-radius: 50%; background-color: #c69c5c; display: block; text-decoration: none; width: 48px; height: 48px;" href="{{ tokenURL }}">
+                                    <img width="24" style="margin: 12px;" src="cid:content-copy" alt="Copier">
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="paddingMD vpaddingTopXS vpaddingBottomXS" align="left" bgcolor="#ffffff" style="padding: 16px 32px 0;">
+                    <h3 style="font-weight: bold; font-size: 16px;">Conseils de sécurité</h3>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="paddingMD vpaddingTopXS vpaddingBottomXS" align="left" bgcolor="#ffffff" style="padding: 0 32px;">
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="paddingMD vpaddingTopXS vpaddingBottomXS" align="left" bgcolor="f9f9f9" style="border-left: 4px solid #c69c5c; border-top-right-radius: 16px; border-bottom-right-radius: 16px;">
+                                <ul class="listNoDot hmarginLeftXLNeg" style="margin-left: 8px; text-align: justify;">
+                                    <li>Ne partagez jamais ce lien d'activation avec qui que ce soit.</li>
+                                    <li>Jamais votre mot de passe ne vous sera demandé par mail.</li>
+                                    <li>L'URL commence toujours par https://app.cv-manager.fr.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="paddingMD" align="left" bgcolor="#ffffff" style="padding: 16px 32px; text-align: justify;">
+                    <p>Si vous n'êtes pas à l'origine de cette inscription, vous pouvez ignorer ce mail en toute sécurité. Le compte ne sera pas activé et sera automatiquement supprimé de nos systèmes sous 24 heures.</p>
+                    <p>A bientôt,</p>
+                    <p style="font-weight: bold;">L'équipe CV Manager</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="paddingMD"  align="center" bgcolor="c69c5c" style="padding: 16px; color: #ffffff;">
+                    <p class="marginXS" style="margin: 0; font-weight: bold;">© 2026 CV Manager</p>
+                    <p class="marginXS fontSM" style="margin: 0;">La solution intelligente pour vos candidatures</p>
+                </td>
+            </tr>
+
+        </table>
+                
+    </body>
+
+</html>
