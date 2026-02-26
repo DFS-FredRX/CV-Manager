@@ -20,7 +20,7 @@ export class RegisterDTO {
 
     @IsEmail({}, { message: 'Veuillez fournir un email valide' })
     @IsNotEmpty({ message: "L'adresse mail est requise" })
-    @Matches(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/, { message: 'Veuillez entrer une adresse mail valide (ex: contact@domaine.fr)'})
+    @Matches(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/, { message: 'Veuillez entrer une adresse mail valide'})
     @NotContains(' ')
     email: string
 

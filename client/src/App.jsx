@@ -6,7 +6,8 @@ import Register from './pages/Register'
 import Activation from './pages/Activation'
 import Login from './pages/Login'
 
-import './assets/styles/theme.css'
+import 'src/assets/styles/theme.css'
+import 'src/assets/styles/scrollbar.css'
 
 export const routes = [
   {
